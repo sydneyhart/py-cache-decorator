@@ -1,10 +1,10 @@
-from typing import Callable
+from typing import Any, Callable
 
 
 def cache(func: Callable) -> Callable:
     cached_results = {}
 
-    def wrapper(*args):
+    def wrapper(*args) -> Any:  # Add return type annotation
         if args in cached_results:
             print("Getting from cache")
             return cached_results[args]
